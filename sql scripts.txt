@@ -1,0 +1,40 @@
+//creating club table
+
+CREATE TABLE `club` (
+  `clubid` int NOT NULL,
+  `clubname` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`clubid`)
+) 
+
+//creating login details table
+
+CREATE TABLE `logincredentials` (
+  `usn` varchar(10) NOT NULL,
+  `Password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`usn`)
+) 
+
+
+//creating skill table
+
+CREATE TABLE `skills` (
+  `usn` varchar(12) NOT NULL,
+  `skill` varchar(45) DEFAULT NULL,
+  KEY `usn` (`usn`),
+  CONSTRAINT `usn` FOREIGN KEY (`usn`) REFERENCES `logincredentials` (`usn`) ON DELETE CASCADE
+) 
+
+//creating user details table
+
+CREATE TABLE `userdetails` (
+  `studentname` varchar(25) NOT NULL,
+  `sem` int DEFAULT NULL,
+  `Branch` varchar(45) DEFAULT NULL,
+  `Phone` int DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `usn` varchar(10) NOT NULL,
+  KEY `usn` (`usn`),
+  CONSTRAINT `userdetails_ibfk_1` FOREIGN KEY (`usn`) REFERENCES `logincredentials` (`usn`) ON DELETE CASCADE
+) 
+
