@@ -90,7 +90,7 @@ public class SKILLS extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					String url = "jdbc:mysql://localhost/skillmanagementdatabase";
 					String username = "root";
-					String pass = "444888";
+					String pass = "******";
 					Connection con= DriverManager.getConnection(url,username,pass);
 					Statement smt=con.createStatement();
 					String skill=textField.getText();
